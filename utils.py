@@ -87,9 +87,9 @@ def make_facies_log_plot(logs, facies_colors):
 def unskew(df):
     df['GR'] = stats.boxcox(df['GR'])[0]
     df['PHIND'] = stats.boxcox(df['PHIND'])[0]
-    df['Depth'] = stats.boxcox(df['Depth'])[0]
+    # df['Depth'] = stats.boxcox(df['Depth'])[0]
     df['PE'] = stats.boxcox(df['PE'])[0]
-    df['DeltaPHI'] = np.log(df['DeltaPHI'])
+    # df['DeltaPHI'] = np.log(df['DeltaPHI'])
     return df
 
 def select_categorical_feature(data, feature, label):
@@ -103,3 +103,43 @@ def select_categorical_feature(data, feature, label):
         result = f'{feature} ia independent of {label}, fail to reject H0'
     return result
 
+def train_test_split_by_well(df, train_size):
+    grouped_by_well = df.groupby(['Well Name'])['Facies'].count()
+    grouped_by_well = pd.DataFrame(grouped_by_well)
+    grouped_by_well.rename(columns = {'Facies':'count'}, inplace=True)
+    grouped_by_well.reset_index(inplace=True)
+    grouped_by_well.sort_values(by = 'count', ascending = False, inplace=True)
+    total_count = grouped_by_well['count'].sum()
+    add_count = 0
+    train_wells = []
+    for i, count in enumerate(grouped_by_well['count']):
+        if (train_size*total_count-add_count)>count:
+            add_count+=count
+            train_wells.append(grouped_by_well['Well Name'][i])
+        else:
+            continue
+    train = df.loc[df['Well Name'].isin(train_wells)]
+    test = df.loc[~df['Well Name'].isin(train_wells)]
+    return train,test
+
+def train_test_plot(df, train_df, test_df):
+    well_counts = df.value_counts('Well Name').to_frame('count').reset_index()
+    categories = {'Train Set': train_df['Well Name'].unique(),
+                'Test Set': test_df['Well Name'].unique()}
+    plt.rcParams['figure.figsize'] = (7,5)
+    theme_colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
+    category_colors = {category: color for category, color in zip(categories, theme_colors)}
+    display_names = {}
+    value_to_category = {display_names.get(value,value):category 
+                        for category, values in categories.items()
+                        for value in values}
+    colors = [category_colors[value_to_category[value]] 
+            for value in well_counts['Well Name']]
+    plt.bar(x = well_counts['Well Name'], height = well_counts['count'], color = colors)
+    handles = [plt.Rectangle((0,0), 1, 1, color=color) for color in category_colors.values()]
+    plt.legend(handles, categories)
+    plt.title('Train_set Wells and Test_set', fontweight = 'bold')
+    plt.xticks([])
+    plt.ylabel('Count', fontweight = 'bold')
+    plt.xlabel('Wells', fontweight = 'bold')
+    plt.show()
