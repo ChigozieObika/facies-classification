@@ -7,6 +7,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 import matplotlib.colors as colors
 from scipy.stats import chi2_contingency
 from scipy.stats import chi2
+import joblib
 
 import config
 
@@ -30,7 +31,7 @@ class UniAnalysis():
         sns.boxplot(y=self.df[feature],ax=ax[0])
         ax[0].set_ylabel(f'{feature}', fontsize = 12, fontweight ='bold')
         ax[0].set_title('{} Distribution(Boxplot)'.format(feature), fontsize = 14, fontweight = 'bold')
-        sns.boxplot(y=self.df[feature], x=self.df[label], ax=ax[1])
+        sns.boxplot(y=self.df[feature], x=self.df[label], palette=config.FACIES_COLORS, ax=ax[1])
         ax[1].set_ylabel(f'{feature}', fontsize = 12, fontweight ='bold')
         ax[1].set_xlabel(f'{label}', fontsize = 12, fontweight ='bold')
         ax[1].set_title(f'{feature} vs {label} Boxplot', fontsize = 14, fontweight = 'bold')
@@ -122,6 +123,10 @@ def train_test_split_by_well(df, train_size):
     test = df.loc[~df['Well Name'].isin(train_wells)]
     return train,test
 
+def drop_columns(well_df):
+    processed_df = well_df.drop(['Well Name', 'Formation', 'Depth'], axis =1)
+    return processed_df
+
 def train_test_plot(df, train_df, test_df):
     well_counts = df.value_counts('Well Name').to_frame('count').reset_index()
     categories = {'Train Set': train_df['Well Name'].unique(),
@@ -143,3 +148,9 @@ def train_test_plot(df, train_df, test_df):
     plt.ylabel('Count', fontweight = 'bold')
     plt.xlabel('Wells', fontweight = 'bold')
     plt.show()
+
+def plot_predictions(well, model_filename):
+    model = joblib.load(model_filename)
+    well_predictions = model.predict(well)
+    well['Facies'] = well_predictions
+    make_facies_log_plot(well, config.FACIES_COLORS)
