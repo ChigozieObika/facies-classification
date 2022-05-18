@@ -139,13 +139,6 @@ def train_test_split_by_well(df, train_size):
     test = df.loc[~df['Well Name'].isin(train_wells)]
     return train,test
 
-def drop_columns(well_df):
-    '''
-    drop columns that are not required in the model training stage
-    '''
-    processed_df = well_df.drop(['Well Name', 'Formation', 'Depth'], axis =1)
-    return processed_df
-
 def train_test_plot(df, train_df, test_df):
     '''
     plot to show that the split by well is correctly applied. Takes the dataframe, the test and the test sets as arguments
