@@ -101,7 +101,7 @@ def make_bar_charts(logs, min_depth, max_depth):
     f.suptitle('Charts for %s'%logs.iloc[0]['Well Name'], fontsize=14, fontweight = 'bold', y=0.95)
     st.pyplot(f)
 
-def well_info(logs):
+def well_stats(logs):
     logs = make_predictions(logs)
     max_depth = logs.Depth.max()
     facies_classes = [x for x in logs.Facies.unique()]
@@ -110,10 +110,10 @@ def well_info(logs):
     formation = [x for x in logs.Formation.unique()]
     st.subheader('Well Information')
     st.write('Well Name: %s'%logs.iloc[0]['Well Name'])
-    st.write('Maximum depth of well: %s'%max_depth)
-    st.write('Facies present in well: %s'%facies_classes)
+    st.write(f'Maximum depth of well: {max_depth}m')
+    st.write(f'Facies present in well: {len(facies_count)} facies - {facies_classes}')
     st.write('Most occurring facies in well: %s'%facies_count_max)
-    st.write('Formations present in well: %s'%formation)
+    st.write(f'Formations present in well: {len(formation)} formations - {formation}')
 
 
 
