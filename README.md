@@ -46,14 +46,24 @@ A multi-class classifier is trained with well logs data. The classifier predicts
 
 ## Summary of Results
 
+### Correlation between the features.
+<img src="images/Correlation_features.png" width=500 height=300 />
+
 ### Confusion matrix of LogisticRegression Classifier
-<img src="Confusion Matrix for ExtraTreeClassifier Model.png" width=500 height=300 />
+<img src="images/Confusion Matrix for ExtraTreeClassifier Model.png" width=500 height=300 />
+
+### Features Importance.
+<img src="images/Features_importance.png" width=500 height=300 />
 
 ### Deployed App
-<img src="complaints_classification/readme_plots/deploy.gif" width=500 height=300 />
+#### Display well information
+<img src="gif_files/well_info.gif" width=500 height=300 />
 
-### Interactive Dashboard
-<img src="complaints_classification/readme_plots/dashboard.gif" width=500 height=300 />
+#### Disply plots of predicted facies and their sizes by count 
+<img src="gif_files/plots.gif" width=500 height=300 />
+
+#### Display message indicating selected depth is out of range 
+<img src="gif_files/out_of_range.gif" width=500 height=300 />
 
 ## Limitation and Recommendations
 
