@@ -1,6 +1,5 @@
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer, PowerTransformer, FunctionTransformer
 
-from xgboost import XGBClassifier
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
@@ -13,7 +12,7 @@ FACIES_LABELS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 TRAIN_SIZE = 0.8
 
 MODELS = [
-     LogisticRegression(), ExtraTreesClassifier(), XGBClassifier(), DecisionTreeClassifier()
+     LogisticRegression(), ExtraTreesClassifier(), DecisionTreeClassifier()
 ]
 PREPROCESSORS = [Normalizer(), MinMaxScaler(), StandardScaler(), PowerTransformer()]
 
