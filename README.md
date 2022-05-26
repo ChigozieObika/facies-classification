@@ -62,6 +62,8 @@ A multi-class classifier is trained with well logs data. The classifier predicts
 ### Features Importance.
 <img src="images/Features_importance.png" width=500 height=300 />
 
+The features importance plot shows there is no dominant features among the inputs to the model. Put differently, each feature thas a significant contribution to the model prediction.
+
 ### Deployed App
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/chigozieobika/facies-classification/app.py). 
 The test dataset for the app is [here](datasets/app_test_well.csv)
