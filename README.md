@@ -74,6 +74,46 @@ The test dataset for the app is [here](datasets/app_test_well.csv)
 #### Display message indicating selected depth is out of range 
 <img src="gif_files/out_of_range.gif" width=500 height=300 />
 
+#### Repository Structure
+```
+.
+├── Dockerfile
+├── EDA_facies.ipynb
+├── README.md
+├── __pycache__
+│   ├── config.cpython-310.pyc
+│   ├── config.cpython-39.pyc
+│   ├── predict_page.cpython-310.pyc
+│   ├── predict_page.cpython-39.pyc
+│   ├── utils.cpython-310.pyc
+│   └── utils.cpython-39.pyc
+├── app.py
+├── app_test_well.csv
+├── config.py
+├── datasets
+│   ├── app_test_well.csv
+│   ├── facies_data.csv
+│   └── test_well.csv
+├── environment.yml
+├── environment_droplet.yml
+├── facies_classification_model.joblib
+├── gif_files
+│   ├── out_of_range.gif
+│   ├── plots.gif
+│   └── well_info.gif
+├── images
+│   ├── Confusion Matrix for ExtraTreeClassifier Model.png
+│   ├── Correlation_features.png
+│   ├── Features_importance.png
+│   └── banner.png
+├── model.ipynb
+├── predict_page.py
+├── requirements.txt
+├── test_well.csv
+├── utils.py
+└── visualisation_preprocessing.ipynb
+```
+
 ## Limitation and Recommendations
 
 - There are adjacent facies in the dataset that are easily misclassified.
