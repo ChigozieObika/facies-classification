@@ -2,13 +2,14 @@
   <h2 align="center" style="margin-top: 0px;">FACIES CLASSIFICATION</h2>
 </p>
 <p align = "center">
-<img src="banner.png" alt="alt text" title="Well logs" height="450"/>
+<img src="images/banner.png" alt="alt text" title="Well logs" height="450"/>
 </p>
 
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 ![Python version](https://img.shields.io/badge/Python%20version-3.10%2B-lightgrey)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ChigozieObika/facies-classification)
 ![GitHub repo size](https://img.shields.io/github/repo-size/ChigozieObika/facies-classification)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/chigozieobika/facies-classification/app.py)
 
 ## Key Takeaway
 - Well logs are used to predict and classifiy the facies (rock-types) of the formations in the segment (zones) of the well captured in the logs.
