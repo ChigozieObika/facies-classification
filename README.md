@@ -38,6 +38,12 @@ A multi-class classifier is trained with well logs data. The classifier predicts
 ## Data Source
 [Well Log Facies](https://www.kaggle.com/datasets/imeintanis/well-log-facies-dataset)
 
+## Steps to Solution
+- Exploratory Data Analysis
+- Model Training
+- Model Evaluation
+- Model Deployment
+
 ## Tech Stack
 - Python (refer to requirement.txt for the packages used in this project)
 - Scikit Learn (model training)
@@ -57,6 +63,8 @@ A multi-class classifier is trained with well logs data. The classifier predicts
 <img src="images/Features_importance.png" width=500 height=300 />
 
 ### Deployed App
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/chigozieobika/facies-classification/app.py). 
+The test dataset for the app is [here](datasets/app_test_well.csv)
 #### Display well information
 <img src="gif_files/well_info.gif" width=500 height=300 />
 
