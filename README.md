@@ -55,19 +55,19 @@ A multi-class classifier is trained with well logs data. The classifier predicts
 
 ### Initial experiments results
 ```
-	models	                                          transformers	accuracy
-0	LogisticRegression()	                            Normalizer()	0.33
-1	LogisticRegression()	                            MinMaxScaler()	0.40
-2	LogisticRegression()	                            StandardScaler()	0.51
-3	LogisticRegression()	                            PowerTransformer()	0.51
-4	(ExtraTreeClassifier(random_state=913520753), ...	Normalizer()	0.55
-5	(ExtraTreeClassifier(random_state=913520753), ...	MinMaxScaler()	0.58
+	models	                                            	transformers		accuracy
+0	LogisticRegression()	                            	Normalizer()		0.33
+1	LogisticRegression()	                            	MinMaxScaler()		0.40
+2	LogisticRegression()	                            	StandardScaler()	0.51
+3	LogisticRegression()	                            	PowerTransformer()	0.51
+4	(ExtraTreeClassifier(random_state=913520753), ...	Normalizer()		0.55
+5	(ExtraTreeClassifier(random_state=913520753), ...	MinMaxScaler()		0.58
 6	(ExtraTreeClassifier(random_state=913520753), ...	StandardScaler()	0.57
 7	(ExtraTreeClassifier(random_state=913520753), ...	PowerTransformer()	0.58
-8	DecisionTreeClassifier()	                        Normalizer()	0.46
-9	DecisionTreeClassifier()	                        MinMaxScaler()	0.48
-10	DecisionTreeClassifier()	                      StandardScaler()	0.46
-11	DecisionTreeClassifier()	                      PowerTransformer()	0.46
+8	DecisionTreeClassifier()	                        Normalizer()		0.46
+9	DecisionTreeClassifier()	                        MinMaxScaler()		0.48
+10	DecisionTreeClassifier()	                      	StandardScaler()	0.46
+11	DecisionTreeClassifier()	                      	PowerTransformer()	0.46
 ```
 - From the initial results, ExtraTreeClassifier has the best model performance
 - Further tests revealed that the preprocessors do not contribute to improving model performance
