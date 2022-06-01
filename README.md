@@ -33,7 +33,13 @@
 Well logs are used to determine the facies (rock-types) in a well or a sectionn of it. There is no consistency in the interpretations of these logs as different geologists will apply different criteria to arrive at the rock types. This is in addition to the man hours it takes geologists to do these interpretations.
 
 ## Summary of Solution
-A multi-class classifier is trained with well logs data. The classifier predicts the facies (rock type) at a given depth in well using log information as inputs. Each facies is mapped to a colour. Using these colours, the predicted facies are plotted in a visualisation of the classifier predictions together with the log plots of the well. The plot is referenced by depth which aids in its readability by an end user. 
+There are two aspects of the solution: the predictions and the analysis of the predictions 
+
+For the first aspect, a multi-class classifier is trained with well logs data. The classifier predicts the facies (rock type) at a given depth in well using log information as inputs. Each facies is mapped to a colour. Using these colours, the predicted facies are plotted in a visualisation of the classifier predictions together with the log plots of the well. The plot is referenced by depth which aids in its readability by an end user. 
+
+The second aspect of the solution gives an analytical report of the predictions from the first apsect. The analysis shows the distribution of the predicted facies classes.
+
+Both aspects are integrated in the deployed app onn streamlit.
 
 ## Data Source
 [Well Log Facies](https://www.kaggle.com/datasets/imeintanis/well-log-facies-dataset)
